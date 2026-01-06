@@ -1,4 +1,4 @@
-![goinmonster](https://raw.githubusercontent.com/eddieafk/goinmonster/main/docs/img/join_monster.png)
+![goinmonster](https://raw.githubusercontent.com/eddieafk/goinmonster/main/docs/img/goinmonster.png)
 
 **goinmonster** is a GraphQL to SQL code generator and query execution toolkit for Go. It allows you to map GraphQL schemas to SQL databases and generate efficient Go code for query resolution. It's a [join-monster]() derivative project.
 
