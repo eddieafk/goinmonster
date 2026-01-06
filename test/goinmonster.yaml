@@ -1,0 +1,71 @@
+# goinmonster configuration file
+# See documentation for more options
+
+# GraphQL schema files (supports glob patterns)
+schema:
+  - "*.graphqls"
+  - "*.graphql"
+  - "graph/*.graphqls"
+  - "graph/*.graphql"
+
+# Output configuration
+output:
+  # Directory for generated files
+  dir: "graph"
+  # Package name for generated code
+  package: "graph"
+  # Generated file name
+  filename: "generated.go"
+  # Resolver file name (stub resolvers)
+  resolvers: "resolvers.go"
+  # Server file name (main entry point)
+  server: "server.go"
+
+# Database configuration
+database:
+  # SQL dialect: postgresql, mysql, sqlite
+  dialect: "postgresql"
+
+# Model configuration
+models:
+  # Map GraphQL types to database tables
+  # Format: TypeName: table_name
+  # Example:
+  # User: users
+  # Post: posts
+  # Profile: profiles
+
+# Field mappings (for non-standard column names)
+# Format: TypeName.fieldName: column_name
+# Example:
+# Post.authorId: author_id
+# User.createdAt: created_at
+fields: {}
+
+# Relation configurations
+# Format:
+#   TypeName.fieldName:
+#     type: hasMany|hasOne|belongsTo
+#     table: target_table
+#     foreignKey: foreign_key_column
+#     references: referenced_column
+#     joinType: left|inner|right
+relations: {}
+
+# Custom scalar type mappings
+scalars:
+  DateTime:
+    go_type: "time.Time"
+    marshaler: "DateTimeMarshaler"
+  JSON:
+    go_type: "map[string]interface{}"
+    marshaler: "JSONMarshaler"
+  ID:
+    go_type: "string"
+  
+# Resolver generation options
+resolver:
+  # Generate resolver stubs for missing resolvers
+  generate_stubs: true
+  # Layout: single-file or follow-schema
+  layout: "single-file"

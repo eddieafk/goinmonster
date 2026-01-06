@@ -1,0 +1,42 @@
+# GraphQL schema
+# Add your types, queries, and mutations here
+
+# Custom scalars
+scalar DateTime
+scalar JSON
+
+# Directives for SQL mapping
+directive @sql(
+  column: String
+  table: String
+  relation: String
+) on FIELD_DEFINITION
+
+# Example types - replace with your own
+
+type Query {
+  users(limit: Int, offset: Int): [User!]!
+  user(id: ID!): User
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+}
